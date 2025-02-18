@@ -1,18 +1,25 @@
-group 'sncf.connect.tech.flutter_google_wallet'
-version '1.0-SNAPSHOT'
-
 buildscript {
-    ext.kotlin_version = '1.6.10'
+    ext.kotlin_version = '1.7.10' // Actualiza si es necesario
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal() // Asegura que Gradle encuentra los plugins
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.2'
+        classpath 'com.android.tools.build:gradle:7.3.0' // Versión más reciente
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+// Mueve `group` y `version` aquí
+group 'sncf.connect.tech.flutter_google_wallet'
+version '1.0-SNAPSHOT'
 
 rootProject.allprojects {
     repositories {
@@ -21,11 +28,8 @@ rootProject.allprojects {
     }
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33 // Recomendado actualizar a una versión más reciente
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -46,6 +50,6 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version" // Usa jdk8 en lugar de jdk7
     implementation 'com.google.android.gms:play-services-pay:16.0.3'
 }
