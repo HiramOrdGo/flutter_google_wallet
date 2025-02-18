@@ -31,6 +31,8 @@ rootProject.allprojects {
 android {
     compileSdk = flutter.compileSdkVersion
 
+    namespace 'com.sncf.connect.tech.flutter_google_wallet' // Add this line to specify the namespace
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
